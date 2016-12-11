@@ -17,26 +17,6 @@ class BotSama:
     version = "v0.4.1"
     host = ""
     user = ""
-    help = "Bot " + version + "<br><br>"\
-          "You can give me a command by writing a message in the chat or by whispering to me!<br>" \
-          "I understand the following commands:" \
-          "<ul>" \
-          "<li><code>!echo [text]</code></li><ul><li>I will repeat [text] in the chat</li></ul>" \
-          "<li><code>!help</code></li><ul><li>Print help</li></ul></li>" \
-          "<li><code>!play [url]</code></li><ul><li>Starts playing music</li></ul></li>" \
-          "<li><code>!add [url]</code></li><ul><li>Adds [url] to the playlist</li></ul></li>" \
-          "<li><code>!playlist</code></li><ul><li>Lists the playlist</li></ul></li>" \
-          "<li><code>!stop</code></li><ul><li>Stops playing music</li></ul></li>" \
-          "<li><code>!clear</code></li><ul><li>Clears the playlist</li></ul></li>" \
-          "<li><code>!volume up|down|[vol]</li><ul><li>Changes the volume. No argument prints it.</li></ul></li>" \
-          "</ul>" \
-          "<br>" \
-          "Currently TODO:" \
-          "<ul>" \
-          "<li>Soundbot</li><ul><li>Local</li><li>Spotify</li><li><s>Youtube</s></li><li><s>Radio Streams</s></li><li><s>Youtube Playlists</s></li><li>General controls</li><li>Metadata</li></ul>" \
-          "<li>Torrent downloader</li><li>Feature requests</li><li>Message offline admin</li>" \
-          "<li>Check user privilege</li>" \
-          "</ul>"
     cert = ""
 
 
@@ -47,10 +27,7 @@ class BotSama:
     thread = None
     preproc = None
 
-    def __init__(self, host, user, password,port=64738, help=None, cert=None):
-        if (not help):
-            help = self.help
-
+    def __init__(self, host, user, password, help, port=64738, cert=None):
         # start bot
         self.botsama = pymumble.Mumble(host, user, port, "spice", debug=False)
         self.exit = False

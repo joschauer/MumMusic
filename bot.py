@@ -1,9 +1,8 @@
 import pymumble
-import re
+import youParse
 import time
-import audioop
 import re
-import urllib2 as urllib
+import audioop
 import sys
 import time
 import subprocess as sp
@@ -13,7 +12,7 @@ regYoutube      = re.compile(r"https?://www.youtube.com/watch\?v=.*")
 regYouPlay      = re.compile(r"https?://www.youtube.com/playlist\?list=.*")
 regYouPlayVid   = re.compile(r"https?://www.youtube.com/watch\?v=.*list=.*")
 
-class BotSama:
+class MumMusic:
     version = "v0.4.1"
     host = ""
     user = ""
@@ -29,7 +28,7 @@ class BotSama:
 
     def __init__(self, host, user, password, help, port=64738, cert=None):
         # start bot
-        self.botsama = pymumble.Mumble(host, user, port, "spice", debug=False)
+        self.botsama = pymumble.Mumble(host, user, port, password, debug=False)
         self.exit = False
 
         self.botsama.set_receive_sound(False)
@@ -38,7 +37,6 @@ class BotSama:
         self.botsama.start()
         self.botsama.is_ready()
 
-        self.botsama.channels.find_by_name("Botcity").move_in();
         self.botsama.users.myself.unmute()
         self.botsama.set_bandwidth(200000)
 
